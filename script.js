@@ -2,6 +2,8 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const scoreEl = document.getElementById("score");
 const bestEl = document.getElementById("best");
+const leftBtn = document.getElementById("leftBtn");
+const rightBtn = document.getElementById("rightBtn");
 
 const roadLeft = 70;
 const roadWidth = 340;
@@ -44,6 +46,48 @@ document.addEventListener("keydown", (event) => {
 
 document.addEventListener("keyup", (event) => {
   keys[event.key.toLowerCase()] = false;
+});
+
+// Button event listeners for UP (left button)
+leftBtn.addEventListener("mousedown", () => {
+  keys.arrowup = true;
+  bike.speed = -bike.maxSpeed;
+});
+
+leftBtn.addEventListener("mouseup", () => {
+  keys.arrowup = false;
+});
+
+leftBtn.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  keys.arrowup = true;
+  bike.speed = -bike.maxSpeed;
+});
+
+leftBtn.addEventListener("touchend", (e) => {
+  e.preventDefault();
+  keys.arrowup = false;
+});
+
+// Button event listeners for DOWN (right button)
+rightBtn.addEventListener("mousedown", () => {
+  keys.arrowdown = true;
+  bike.speed = bike.maxSpeed;
+});
+
+rightBtn.addEventListener("mouseup", () => {
+  keys.arrowdown = false;
+});
+
+rightBtn.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  keys.arrowdown = true;
+  bike.speed = bike.maxSpeed;
+});
+
+rightBtn.addEventListener("touchend", (e) => {
+  e.preventDefault();
+  keys.arrowdown = false;
 });
 
 function resetGame() {
