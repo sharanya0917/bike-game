@@ -50,44 +50,44 @@ document.addEventListener("keyup", (event) => {
 
 // Button event listeners for UP (left button)
 leftBtn.addEventListener("mousedown", () => {
-  keys.arrowup = true;
+  keys.arrowleft = true;
   bike.speed = -bike.maxSpeed;
 });
 
 leftBtn.addEventListener("mouseup", () => {
-  keys.arrowup = false;
+  keys.arrowleft = false;
 });
 
 leftBtn.addEventListener("touchstart", (e) => {
   e.preventDefault();
-  keys.arrowup = true;
+  keys.arrowleft = true;
   bike.speed = -bike.maxSpeed;
 });
 
 leftBtn.addEventListener("touchend", (e) => {
   e.preventDefault();
-  keys.arrowup = false;
+  keys.arrowleft = false;
 });
 
 // Button event listeners for DOWN (right button)
 rightBtn.addEventListener("mousedown", () => {
-  keys.arrowdown = true;
+  keys.arrowright = true;
   bike.speed = bike.maxSpeed;
 });
 
 rightBtn.addEventListener("mouseup", () => {
-  keys.arrowdown = false;
+  keys.arrowright = false;
 });
 
 rightBtn.addEventListener("touchstart", (e) => {
   e.preventDefault();
-  keys.arrowdown = true;
+  keys.arrowright = true;
   bike.speed = bike.maxSpeed;
 });
 
 rightBtn.addEventListener("touchend", (e) => {
   e.preventDefault();
-  keys.arrowdown = false;
+  keys.arrowright = false;
 });
 
 function resetGame() {
