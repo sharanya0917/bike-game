@@ -4,6 +4,12 @@ const scoreEl = document.getElementById("score");
 const bestEl = document.getElementById("best");
 const leftBtn = document.getElementById("leftBtn");
 const rightBtn = document.getElementById("rightBtn");
+const authScreen = document.getElementById("authScreen");
+const gameShell = document.getElementById("gameShell");
+const playerNameEl = document.getElementById("playerName");
+const loginForm = document.getElementById("loginForm");
+const usernameInput = document.getElementById("username");
+const passwordInput = document.getElementById("password");
 
 const roadLeft = 70;
 const roadWidth = 340;
@@ -29,6 +35,20 @@ const bike = {
 
 const obstacles = [];
 
+loginForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const playerName = usernameInput.value.trim() || "Guest";
+  playerNameEl.textContent = playerName;
+  authScreen.classList.add("hidden");
+  gameShell.classList.remove("hidden");
+  passwordInput.value = "";
+
+  if (!gameRunning) {
+    resetGame();
+  }
+});
+
 document.addEventListener("keydown", (event) => {
   keys[event.key.toLowerCase()] = true;
 
@@ -48,7 +68,6 @@ document.addEventListener("keyup", (event) => {
   keys[event.key.toLowerCase()] = false;
 });
 
-// Button event listeners for UP (left button)
 leftBtn.addEventListener("mousedown", () => {
   keys.arrowleft = true;
   bike.speed = -bike.maxSpeed;
@@ -69,7 +88,6 @@ leftBtn.addEventListener("touchend", (e) => {
   keys.arrowleft = false;
 });
 
-// Button event listeners for DOWN (right button)
 rightBtn.addEventListener("mousedown", () => {
   keys.arrowright = true;
   bike.speed = bike.maxSpeed;
