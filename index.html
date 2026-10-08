@@ -7,16 +7,43 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="game-shell">
-      <div class="hud">
-        <div>Score: <span id="score">0</span></div>
-        <div>Best: <span id="best">0</span></div>
+    <div class="auth-screen" id="authScreen">
+      <div class="auth-card">
+        <div class="brand">Bike <span>Rush</span></div>
+        <h1>Welcome rider</h1>
+        <p class="subtitle">Sign in to start your stunt run.</p>
+
+        <form id="loginForm" class="login-form">
+          <label>
+            Username
+            <input id="username" type="text" placeholder="Enter your name" required />
+          </label>
+
+          <label>
+            Password
+            <input id="password" type="password" placeholder="Enter your password" required />
+          </label>
+
+          <button type="submit" class="auth-btn">Login</button>
+        </form>
+
+        <p class="hint">Demo access: use any username and password.</p>
+      </div>
+    </div>
+
+    <div class="game-shell hidden" id="gameShell">
+      <div class="topbar">
+        <div class="player-tag">Player: <span id="playerName">Guest</span></div>
+        <div class="hud">
+          <div>Score: <span id="score">0</span></div>
+          <div>Best: <span id="best">0</span></div>
+        </div>
       </div>
 
       <canvas id="gameCanvas" width="480" height="640"></canvas>
 
       <div class="controls-info">Use ↑ ↓ or W / S to move the bike</div>
-      
+
       <div class="controls">
         <button id="leftBtn" class="btn btn-left">← UP</button>
         <button id="rightBtn" class="btn btn-right">DOWN →</button>
