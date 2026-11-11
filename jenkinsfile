@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+                echo 'Car game downloaded'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Car game build started'
+                sh 'ls -la'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Car game files checked'
+                sh 'test -f index.html'
+                sh 'test -f style.css'
+                sh 'test -f script.js'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Car game is ready!'
+            }
+        }
+    }
+}
